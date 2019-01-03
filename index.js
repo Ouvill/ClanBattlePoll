@@ -1,7 +1,9 @@
 require('dotenv').config();
 let request = require('request')
 let async = require('async');
-let moment = require('moment')
+let moment = require('moment-timezone');
+moment.locale('ja');
+let timezone = 'Asia/Tokyo'
 
 let headers = {
     'Content-Type': 'application/json'
@@ -24,7 +26,7 @@ function genPost(content) {
 }
 
 function genPoll(string) {
-    let date = moment().format("MM月DD日")
+    let date = moment().tz(timezone).format("MM月DD日 HH:mm")
     let content = '/poll "[AU]' + date + 'のクラン戦、' + string + 'に参加しますか?" "はい" "いいえ"'
     return genPost(content)
 }
