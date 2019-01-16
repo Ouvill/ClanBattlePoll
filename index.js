@@ -26,7 +26,7 @@ function genPost(content) {
 }
 
 function genPoll(string) {
-    let date = moment().tz(timezone).format("MM月DD日 HH:mm")
+    let date = moment().tz(timezone).format("MM月DD日")
     let content = '/poll "[AU]' + date + 'のクラン戦、' + string + 'に参加しますか?" "はい" "いいえ"'
     return genPost(content)
 }
